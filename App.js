@@ -11,6 +11,30 @@ import {
 } from 'react-native';
 
 export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {};
+    this.setState();
+    this.state.customStyle = {
+      color: '#E91E63',
+    };
+    setInterval(() => {
+      if (this.state.customStyle.color === '#E91E63') {
+        this.setState({
+          customStyle: {
+            color: '#4CAF50',
+          },
+        });
+      } else {
+        this.setState({
+          customStyle: {
+            color: '#E91E63',
+          },
+        });
+      }
+    }, 1000);
+  }
+
   render() {
     return (
       <ScrollView>
@@ -21,12 +45,12 @@ export default class App extends Component {
               uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
             }}
           />
-          <Text style={styles.welcome}>Yo, man! Login korba naki?</Text>
+          <Text style={[styles.welcome, this.state.customStyle]}>Yo, man! Login korba naki?</Text>
           <TextInput style={styles.textInput} />
           <TextInput style={styles.textInput} />
           <Button
             title="Login"
-            onPress={() => Alert.alert('Login Button Pressed!')}
+            onPress={() => Alert.alert('Chill! Pera nai.')}
           />
         </View>
       </ScrollView>
@@ -45,6 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    color: '#E91E63',
   },
   reactLogo: {
     height: 50,
