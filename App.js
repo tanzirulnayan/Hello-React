@@ -1,15 +1,28 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 export default class App extends Component {
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text>Hello, world!</Text>
+      <View style={styles.container}>
+        <Text style={styles.welcome}>Hello, world!</Text>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+});
 
 // /**
 //  * Sample React Native App
@@ -56,8 +69,8 @@ export default class App extends Component {
 //               <Text style={styles.sectionTitle}>Hello, React Native!</Text>
 //               <Text style={styles.sectionTitle}>Step One</Text>
 //               <Text style={styles.sectionDescription}>
-//                 Edit <Text style={styles.highlight}>App.js</Text> to change this
-//                 screen and then come back to see your edits.
+//                 Edit - [Description Section] <Text style={styles.highlight}>App.js [Highlight]</Text> to change this
+//                 change this screen and then come back to see your edits.
 //               </Text>
 //             </View>
 //             <View style={styles.sectionContainer}>
@@ -78,6 +91,52 @@ export default class App extends Component {
 //                 Read the docs to discover what to do next:
 //               </Text>
 //             </View>
+//             <View style={styles.sectionContainer}>
+//               <Text style={styles.sectionTitle}>AIUB Events</Text>
+//               <Text style={styles.sectionDescription}>
+//                 The Department of Marketing, Faculty of Business Administration
+//                 organized an event entitled ‘Practicing International Trade” for
+//                 the students of Global Trade at Lawn between Annex 4 and Annex
+//                 5, Permanent Campus of the university on November 11, 2019. The
+//                 purpose of the event was to provide an opportunity to the
+//                 students to acquire knowledge and skills to promote and sell
+//                 local products in different international marketplaces. 14 teams
+//                 from different sections of Global Trade course attended the
+//                 event with high sincerity and very positive attitude. Each team
+//                 represented a district of our country. They brought some unique
+//                 items from that representing districts and tried to promote and
+//                 sell those unique items in the event with a hypothetical
+//                 international marketplace. The event was inaugurated by Prof.
+//                 Dr. Charles C. Villanueva, Vice President Academics and Dean,
+//                 Faculty of Business Administration. Dr. Tajul Islam, Dean
+//                 Faculty of Arts and Social Science; Ms. Farheen Hassan,
+//                 Associate Professor & Director, BBA Program; Dr. Khondaker
+//                 Sazzadul Karim, Associate Professor and Head, Department of
+//                 Marketing were also present during the inauguration program.
+//                 They visited all stalls and shared their valuable ideas and
+//                 guidelines to all teams. A good number of faculty members from
+//                 different departments, campus officials and thousands of
+//                 students were also visited the event. This event entitled
+//                 ‘Practicing International Trade” is a unique concept that aims
+//                 to help young BBA student enthusiasts to become the future
+//                 business leaders in Bangladesh. The event was highly appreciated
+//                 by all participants, visitors (both students and faculties), and
+//                 other officials of the university. Dr. Partha Prasad Chowdhury,
+//                 Senior Associate Professor, Course Coordinator and Convener,
+//                 Department of Marketing; Dr. Sahin Akter Sarker, Associate
+//                 Professor and Convener, Department of Marketing; Mr. A.K.M.
+//                 Kamrul Haque, Sr. Assistant Professor; and Mr. Mahir Abrar,
+//                 Faculty from the Department of Marketing organized this event.
+//                 TV24 covered the event and conducted some interviews to the
+//                 guests and students. The whole event was also shown on
+//                 television as a result of the coverage. This has added value,
+//                 significance and promotion about the FBA and the university as a
+//                 whole.
+//               </Text>
+//             </View>
+//             {/*<View>*/}
+//               {/*<Blink text='I love to Blink!' />*/}
+//             {/*</View>*/}
 //             <LearnMoreLinks />
 //           </View>
 //         </ScrollView>
