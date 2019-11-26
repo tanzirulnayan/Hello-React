@@ -1,12 +1,35 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {
+  Text,
+  ScrollView,
+  TextInput,
+  Button,
+  View,
+  Image,
+  StyleSheet,
+  Alert,
+} from 'react-native';
 
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Hello, world!</Text>
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <Image
+            style={styles.reactLogo}
+            source={{
+              uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
+            }}
+          />
+          <Text style={styles.welcome}>Yo, man! Login korba naki?</Text>
+          <TextInput style={styles.textInput} />
+          <TextInput style={styles.textInput} />
+          <Button
+            title="Login"
+            onPress={() => Alert.alert('Login Button Pressed!')}
+          />
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -15,11 +38,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
+    margin: 10,
+  },
+  reactLogo: {
+    height: 50,
+    width: 50,
+    marginTop: 150,
+    marginBottom: 50,
+  },
+  textInput: {
+    height: 40,
+    width: 300,
+    borderColor: 'gray',
+    borderWidth: 1,
     margin: 10,
   },
 });
