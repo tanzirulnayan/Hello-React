@@ -13,6 +13,7 @@ import {
 export default class App extends Component {
   constructor() {
     super();
+    this.login = this.login.bind(this);
     this.state = {};
     this.setState();
     this.state.customStyle = {
@@ -35,6 +36,19 @@ export default class App extends Component {
     }, 1000);
   }
 
+  login = () => {
+    // Alert.alert('Chill! Pera nai.');
+    Alert.alert(
+      'Chill! Pera nai. Login hobe. Relax!',
+      'Username: ' +
+        this._username._lastNativeText +
+        'Password: ' +
+        '    ' +
+        this._password._lastNativeText,
+      // 'Okay',
+    );
+  };
+
   render() {
     return (
       <ScrollView>
@@ -46,12 +60,15 @@ export default class App extends Component {
             }}
           />
           <Text style={[styles.welcome, this.state.customStyle]}>Yo, man! Login korba naki?</Text>
-          <TextInput style={styles.textInput} />
-          <TextInput style={styles.textInput} />
-          <Button
-            title="Login"
-            onPress={() => Alert.alert('Chill! Pera nai.')}
+          <TextInput
+            style={styles.textInput}
+            ref={input => (this._username = input)}
           />
+          <TextInput
+            style={styles.textInput}
+            ref={input => (this._password = input)}
+          />
+          <Button title="Login" onPress={this.login} />
         </View>
       </ScrollView>
     );
