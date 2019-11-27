@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {
   Text,
-  ScrollView,
   TextInput,
-  Button,
   View,
   Image,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  StatusBar,
   StyleSheet,
   Alert,
 } from 'react-native';
@@ -53,30 +54,51 @@ export default class App extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <View style={styles.logoContainer}>
           <Image
-            style={styles.reactLogo}
+            style={styles.logo}
             source={{
-              uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
+              uri: 'http://icca.aiub.edu/wp-content/uploads/2019/02/aiub.png',
             }}
           />
-          <Text style={[styles.welcome, this.state.customStyle]}>Yo, man! Login korba naki?</Text>
+          <Text style={styles.title}>
+            American International University - Bangladesh
+          </Text>
+          <Text style={[styles.title, this.state.customStyle]}>
+            Yo, man! Login korba naki?
+          </Text>
+        </View>
+        <View style={styles.formContainer}>
           <TextInput
+            placeholder="Username"
+            placeholderTextColor="rgba(255,255,255,0.7)"
+            returnKeyType="next"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            autoCorrect={false}
             style={styles.textInput}
             // ref={input => (this._username = input)}  //uncontrolled input
             defaultValue={this.state.username}
             onChangeText={text => this.setState({username: text})}
           />
           <TextInput
+            placeholder="Password"
+            placeholderTextColor="rgba(255,255,255,0.7)"
+            returnKeyType="go"
+            secureTextEntry
             style={styles.textInput}
             // ref={input => (this._password = input)}  //uncontrolled input
             defaultValue={this.state.password}
             onChangeText={text => this.setState({password: text})}
           />
-          <Button title="Login" onPress={this.login} />
+          <TouchableOpacity style={styles.buttonContainer}>
+            <Text style={styles.buttonText}>LOG IN</Text>
+          </TouchableOpacity>
+          {/*<Button title="Login" onPress={this.login} />*/}
         </View>
-      </ScrollView>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -86,7 +108,35 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#3498db',
+  },
+  logoContainer: {
+    alignItems: 'center',
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
+  logo: {
+    height: 100,
+    width: 100,
+    marginBottom: 10,
+  },
+  title: {
+    color: '#FFF',
+    fontSize: 16,
+    marginTop: 10,
+    width: 200,
+    textAlign: 'center',
+    opacity: 0.9,
+  },
+  buttonContainer: {
+    backgroundColor: '#2980b9',
+    paddingVertical: 15,
+    marginBottom: 20,
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: '#FFFFFF',
+    fontWeight: '700',
   },
   welcome: {
     fontSize: 20,
@@ -103,9 +153,11 @@ const styles = StyleSheet.create({
   textInput: {
     height: 40,
     width: 300,
-    borderColor: 'gray',
-    borderWidth: 1,
-    margin: 10,
+    backgroundColor: 'rgba(255,255,255,0.1)',
+    color: '#FFF',
+    borderWidth: 0,
+    marginBottom: 10,
+    paddingHorizontal: 10,
   },
 });
 
