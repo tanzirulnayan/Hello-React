@@ -37,14 +37,16 @@ export default class App extends Component {
   }
 
   login = () => {
-    // Alert.alert('Chill! Pera nai.');
+    // const username = this._username._lastNativeText;  //uncontrolled input
+    // const password = this._password._lastNativeText;  //uncontrolled input
+
     Alert.alert(
       'Chill! Pera nai. Login hobe. Relax!',
       'Username: ' +
-        this._username._lastNativeText +
-        'Password: ' +
+        this.state.username +
         '    ' +
-        this._password._lastNativeText,
+        'Password: ' +
+        this.state.password,
       // 'Okay',
     );
   };
@@ -62,11 +64,15 @@ export default class App extends Component {
           <Text style={[styles.welcome, this.state.customStyle]}>Yo, man! Login korba naki?</Text>
           <TextInput
             style={styles.textInput}
-            ref={input => (this._username = input)}
+            // ref={input => (this._username = input)}  //uncontrolled input
+            defaultValue={this.state.username}
+            onChangeText={text => this.setState({username: text})}
           />
           <TextInput
             style={styles.textInput}
-            ref={input => (this._password = input)}
+            // ref={input => (this._password = input)}  //uncontrolled input
+            defaultValue={this.state.password}
+            onChangeText={text => this.setState({password: text})}
           />
           <Button title="Login" onPress={this.login} />
         </View>
