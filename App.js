@@ -41,15 +41,40 @@ export default class App extends Component {
     // const username = this._username._lastNativeText;  //uncontrolled input
     // const password = this._password._lastNativeText;  //uncontrolled input
 
-    Alert.alert(
-      'Chill! Pera nai. Login hobe. Relax!',
-      'Username: ' +
-        this.state.username +
-        '    ' +
-        'Password: ' +
-        this.state.password,
-      // 'Okay',
-    );
+    // Alert.alert(
+    //   'Chill! Pera nai. Login hobe. Relax!',
+    //   'Username: ' +
+    //     this.state.username +
+    //     '    ' +
+    //     'Password: ' +
+    //     this.state.password,
+    //   // 'Okay',
+    // );
+
+    // console.warn(
+    //   'Username: ' + this.state.username + '    Password: ' + this.state.password,
+    // );
+
+    if (this.state.username === 'nayan' && this.state.password === '1234') {
+      console.log('Login successful!');
+    } else if (
+      this.state.username !== 'nayan' &&
+      this.state.password !== '1234'
+    ) {
+      console.warn('Invalid username & password!');
+    } else if (
+      this.state.username !== 'nayan' &&
+      this.state.password === '1234'
+    ) {
+      console.warn('Invalid username!');
+    } else if (
+      this.state.username === 'nayan' &&
+      this.state.password !== '1234'
+    ) {
+      console.warn('Invalid password!');
+    } else {
+      console.warn('Invalid login credentials!');
+    }
   };
 
   render() {
@@ -87,13 +112,13 @@ export default class App extends Component {
             placeholder="Password"
             placeholderTextColor="rgba(255,255,255,0.7)"
             returnKeyType="go"
-            secureTextEntry
+            secureTextEntry={true}
             style={styles.textInput}
             // ref={input => (this._password = input)}  //uncontrolled input
             defaultValue={this.state.password}
             onChangeText={text => this.setState({password: text})}
           />
-          <TouchableOpacity style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.buttonContainer} onPress={this.login}>
             <Text style={styles.buttonText}>LOG IN</Text>
           </TouchableOpacity>
           {/*<Button title="Login" onPress={this.login} />*/}
@@ -108,7 +133,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#3498db',
+    backgroundColor: 'rgba(94,92,230,1.0)',
   },
   logoContainer: {
     alignItems: 'center',
@@ -129,9 +154,10 @@ const styles = StyleSheet.create({
     opacity: 0.9,
   },
   buttonContainer: {
-    backgroundColor: '#2980b9',
+    backgroundColor: 'rgba(88,86,214,1.0)',
     paddingVertical: 15,
     marginBottom: 20,
+    shadowColor: 'white',
   },
   buttonText: {
     textAlign: 'center',
