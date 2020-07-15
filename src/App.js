@@ -13,33 +13,33 @@ import {
 export default class App extends Component {
   constructor() {
     super();
-    this.login = this.login.bind(this);
-    this.state = {};
-    this.setState();
+    // this.login = this.login.bind(this);
+    // this.state = {};
+    // this.setState();
   }
 
-  login = () => {
-    if (this.state.username === 'nayan' && this.state.password === '1234') {
-      console.log('Login successful!');
-    } else if (
-      this.state.username !== 'nayan' &&
-      this.state.password !== '1234'
-    ) {
-      console.warn('Invalid username & password!');
-    } else if (
-      this.state.username !== 'nayan' &&
-      this.state.password === '1234'
-    ) {
-      console.warn('Invalid username!');
-    } else if (
-      this.state.username === 'nayan' &&
-      this.state.password !== '1234'
-    ) {
-      console.warn('Invalid password!');
-    } else {
-      console.warn('Invalid login credentials!');
-    }
-  };
+  // login = () => {
+  //   if (this.state.username === 'nayan' && this.state.password === '1234') {
+  //     console.log('Login successful!');
+  //   } else if (
+  //     this.state.username !== 'nayan' &&
+  //     this.state.password !== '1234'
+  //   ) {
+  //     console.warn('Invalid username & password!');
+  //   } else if (
+  //     this.state.username !== 'nayan' &&
+  //     this.state.password === '1234'
+  //   ) {
+  //     console.warn('Invalid username!');
+  //   } else if (
+  //     this.state.username === 'nayan' &&
+  //     this.state.password !== '1234'
+  //   ) {
+  //     console.warn('Invalid password!');
+  //   } else {
+  //     console.warn('Invalid login credentials!');
+  //   }
+  // };
 
   render() {
     return (
@@ -65,8 +65,8 @@ export default class App extends Component {
             autoCapitalize="none"
             autoCorrect={false}
             style={styles.textInput}
-            defaultValue={this.state.username}
-            onChangeText={text => this.setState({username: text})}
+            // defaultValue={this.state.username}
+            // onChangeText={text => this.setState({username: text})}
           />
           <TextInput
             placeholder="Password"
@@ -74,10 +74,12 @@ export default class App extends Component {
             returnKeyType="go"
             secureTextEntry={true}
             style={styles.textInput}
-            defaultValue={this.state.password}
-            onChangeText={text => this.setState({password: text})}
+            // defaultValue={this.state.password}
+            // onChangeText={text => this.setState({password: text})}
           />
-          <TouchableOpacity style={styles.buttonContainer} onPress={this.login}>
+          <TouchableOpacity style={styles.buttonContainer} 
+          // onPress={this.login}
+          >
             <Text style={styles.buttonText}>LOG IN</Text>
           </TouchableOpacity>
         </View>
