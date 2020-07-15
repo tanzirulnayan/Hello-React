@@ -8,7 +8,6 @@ import {
   KeyboardAvoidingView,
   StatusBar,
   StyleSheet,
-  Alert,
 } from 'react-native';
 
 export default class App extends Component {
@@ -17,44 +16,9 @@ export default class App extends Component {
     this.login = this.login.bind(this);
     this.state = {};
     this.setState();
-    // this.state.customStyle = {
-    //   color: '#E91E63',
-    // };
-    // setInterval(() => {
-    //   if (this.state.customStyle.color === '#E91E63') {
-    //     this.setState({
-    //       customStyle: {
-    //         color: '#4CAF50',
-    //       },
-    //     });
-    //   } else {
-    //     this.setState({
-    //       customStyle: {
-    //         color: '#E91E63',
-    //       },
-    //     });
-    //   }
-    // }, 1000);
   }
 
   login = () => {
-    // const username = this._username._lastNativeText;  //uncontrolled input
-    // const password = this._password._lastNativeText;  //uncontrolled input
-
-    // Alert.alert(
-    //   'Chill! Pera nai. Login hobe. Relax!',
-    //   'Username: ' +
-    //     this.state.username +
-    //     '    ' +
-    //     'Password: ' +
-    //     this.state.password,
-    //   // 'Okay',
-    // );
-
-    // console.warn(
-    //   'Username: ' + this.state.username + '    Password: ' + this.state.password,
-    // );
-
     if (this.state.username === 'nayan' && this.state.password === '1234') {
       console.log('Login successful!');
     } else if (
@@ -91,9 +55,6 @@ export default class App extends Component {
           <Text style={styles.title}>
             American International University - Bangladesh
           </Text>
-          {/* <Text style={[styles.title, this.state.customStyle]}>
-            Yo, man! Login korba naki?
-          </Text> */}
         </View>
         <View style={styles.formContainer}>
           <TextInput
@@ -104,7 +65,6 @@ export default class App extends Component {
             autoCapitalize="none"
             autoCorrect={false}
             style={styles.textInput}
-            // ref={input => (this._username = input)}  //uncontrolled input
             defaultValue={this.state.username}
             onChangeText={text => this.setState({username: text})}
           />
@@ -114,14 +74,12 @@ export default class App extends Component {
             returnKeyType="go"
             secureTextEntry={true}
             style={styles.textInput}
-            // ref={input => (this._password = input)}  //uncontrolled input
             defaultValue={this.state.password}
             onChangeText={text => this.setState({password: text})}
           />
           <TouchableOpacity style={styles.buttonContainer} onPress={this.login}>
             <Text style={styles.buttonText}>LOG IN</Text>
           </TouchableOpacity>
-          {/*<Button title="Login" onPress={this.login} />*/}
         </View>
       </KeyboardAvoidingView>
     );
