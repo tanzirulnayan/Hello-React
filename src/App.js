@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { View } from 'react-native';
 import Login from './components/common/Login';
 import AuthContextProvider from './contexts/AuthContext';
 
