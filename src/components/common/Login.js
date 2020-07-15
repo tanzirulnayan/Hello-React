@@ -8,6 +8,7 @@ import {
     KeyboardAvoidingView,
     StatusBar,
     StyleSheet,
+    ActivityIndicator,
   } from 'react-native';
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -15,8 +16,8 @@ const Login = () => {
     const { authCheck } = useContext(AuthContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = () => {
+        // e.preventDefault();
         authCheck(username, password);
         setUsername('');
         setPassword('');
