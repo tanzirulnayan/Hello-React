@@ -17,24 +17,24 @@ export default class App extends Component {
     this.login = this.login.bind(this);
     this.state = {};
     this.setState();
-    this.state.customStyle = {
-      color: '#E91E63',
-    };
-    setInterval(() => {
-      if (this.state.customStyle.color === '#E91E63') {
-        this.setState({
-          customStyle: {
-            color: '#4CAF50',
-          },
-        });
-      } else {
-        this.setState({
-          customStyle: {
-            color: '#E91E63',
-          },
-        });
-      }
-    }, 1000);
+    // this.state.customStyle = {
+    //   color: '#E91E63',
+    // };
+    // setInterval(() => {
+    //   if (this.state.customStyle.color === '#E91E63') {
+    //     this.setState({
+    //       customStyle: {
+    //         color: '#4CAF50',
+    //       },
+    //     });
+    //   } else {
+    //     this.setState({
+    //       customStyle: {
+    //         color: '#E91E63',
+    //       },
+    //     });
+    //   }
+    // }, 1000);
   }
 
   login = () => {
@@ -91,9 +91,9 @@ export default class App extends Component {
           <Text style={styles.title}>
             American International University - Bangladesh
           </Text>
-          <Text style={[styles.title, this.state.customStyle]}>
+          {/* <Text style={[styles.title, this.state.customStyle]}>
             Yo, man! Login korba naki?
-          </Text>
+          </Text> */}
         </View>
         <View style={styles.formContainer}>
           <TextInput
