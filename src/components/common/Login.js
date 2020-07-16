@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect  } from 'react';
 import {
     Text,
     TextInput,
@@ -22,6 +22,7 @@ const Login = () => {
         setUsername('');
         setPassword('');
     }
+
     return(
         <KeyboardAvoidingView style={styles.container}>
         <StatusBar barStyle="light-content" />

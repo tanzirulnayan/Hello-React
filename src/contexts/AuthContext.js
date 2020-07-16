@@ -8,9 +8,20 @@ const AuthContextProvider = (props) => {
 
     const authCheck = (uname, pwd) => {
         setLoading(true);
-        
-        console.warn('username: ' + uname);
-        console.warn('pass: ' + pwd);
+
+        let details = {
+            'username': uname,
+            'password': pwd,
+            'grant_type' : 'password'
+        };
+    
+        let formBody = [];
+        for (let property in details) {
+            let encodedKey = encodeURIComponent(property);
+            let encodedValue = encodeURIComponent(details[property]);
+            formBody.push(encodedKey + "=" + encodedValue);
+        }
+        formBody = formBody.join("&");
 
         fetch('https://api.aiub.edu/ums-auth-api/Token', {
             method: 'POST',
@@ -18,18 +29,14 @@ const AuthContextProvider = (props) => {
                 Accept: 'application/json',
                 'Content-Type' : 'application/x-www-form-urlencoded'
             },
-            body: JSON.stringify({
-                username: uname,
-                password: pwd,
-                grant_type : 'password',
-            })
+            body: formBody
         })
-        .then((response) => response.json())
-        .then((json) => setDataSource(json.result))
+        .then((response) => response.json()).then((json) => {
+            console.log(json);
+           // setDataSource(json.result)
+        })
         .catch((error) => console.error(error))
         .finally(() => setLoading(false));
-
-        console.log('Token: ' + dataSource);
     }
 
     return(
